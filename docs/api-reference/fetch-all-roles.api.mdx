@@ -1,0 +1,37 @@
+---
+id: fetch-all-roles
+title: "Fetch All Roles"
+description: "Get all roles"
+sidebar_label: "Fetch All Roles"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Auth0 Service"],"description":"Get all roles","operationId":"Fetch All Roles","responses":{"200":{"description":"OK","content":{"*/*":{"schema":{"type":"string"}}}}},"security":[{"security":["admin"]}],"method":"get","path":"/api/admin/roles","servers":[{"url":"http://localhost:8060","description":"Generated server url"}],"securitySchemes":{"security":{"type":"http","scheme":"bearer","bearerFormat":"JWT"}},"info":{"title":"Comment Service API Reference","description":"Documentation Comment Service API v1.0","version":"1.0"},"postman":{"name":"Fetch All Roles","description":{"content":"Get all roles","type":"text/plain"},"url":{"path":["api","admin","roles"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"*/*"}],"method":"GET","auth":{"type":"bearer","bearer":[{"type":"any","value":"<Bearer Token>","key":"token"}]}}}
+sidebar_class_name: "get api-method"
+info_path: api-reference/comment-service-api-reference
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Fetch All Roles
+
+
+
+Get all roles
+
+<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>

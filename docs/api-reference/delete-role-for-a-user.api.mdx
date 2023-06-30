@@ -1,0 +1,37 @@
+---
+id: delete-role-for-a-user
+title: "Delete Role for a User"
+description: "Delete a role for a user"
+sidebar_label: "Delete Role for a User"
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Auth0 Service"],"description":"Delete a role for a user","operationId":"Delete Role for a User","parameters":[{"name":"userId","in":"path","required":true,"schema":{"type":"string"}},{"name":"roleId","in":"path","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"OK","content":{"*/*":{"schema":{"type":"string"}}}}},"security":[{"security":["admin"]}],"method":"get","path":"/api/admin/users/{userId}/role/{roleId}","servers":[{"url":"http://localhost:8060","description":"Generated server url"}],"securitySchemes":{"security":{"type":"http","scheme":"bearer","bearerFormat":"JWT"}},"info":{"title":"Comment Service API Reference","description":"Documentation Comment Service API v1.0","version":"1.0"},"postman":{"name":"Delete Role for a User","description":{"content":"Delete a role for a user","type":"text/plain"},"url":{"path":["api","admin","users",":userId","role",":roleId"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"userId"},{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"roleId"}]},"header":[{"key":"Accept","value":"*/*"}],"method":"GET","auth":{"type":"bearer","bearer":[{"type":"any","value":"<Bearer Token>","key":"token"}]}}}
+sidebar_class_name: "get api-method"
+info_path: api-reference/comment-service-api-reference
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Delete Role for a User
+
+
+
+Delete a role for a user
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"userId","in":"path","required":true,"schema":{"type":"string"}}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"roleId","in":"path","required":true,"schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+OK
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"*/*"} value={"*/*"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem","marginLeft":"1rem"}}>
+
+string
+
+</div></ul></details></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
