@@ -9,13 +9,14 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Docusaurus OpenAPI Docs",
   tagline: "OpenAPI plugin for generating API reference docs in Docusaurus v2",
-  url: "https://docusaurus-openapi.tryingpan.dev",
-  baseUrl: "/",
+  url: "https://chiragpadyal.github.io",
+  baseUrl: "/RapidComments-Docs/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "PaloAltoNetworks",
-  projectName: "docusaurus-openapi-docs",
+  organizationName: "chiragpadyal",
+  projectName: "RapidComments-Docs",
+  trailingSlash: false,
 
   presets: [
     [
@@ -26,17 +27,13 @@ const config = {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl:
-            "https://github.com/PaloAltoNetworks/docusaurus-openapi-docs/tree/main/demo",
+            "https://github.com/chiragpadyal/RapidComments-Docs/tree/main/docs",
           docLayoutComponent: "@theme/DocPage",
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
         blog: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
-        },
-        gtag: {
-          trackingID: "GTM-THVM29S",
-          anonymizeIP: false,
         },
       }),
     ],
@@ -67,7 +64,7 @@ const config = {
             href: "https://chiragpadyal.me",
             position: "right",
             className: "header-medium-link",
-            "aria-label": "Palo Alto Networks Developer Blog",
+            "aria-label": "Chirag Padyal Developer Blog",
           },
           {
             href: "https://github.com/chiragpadyal/rapidcomments",
