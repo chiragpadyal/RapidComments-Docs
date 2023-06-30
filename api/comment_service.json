@@ -1,0 +1,500 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Comment Service API Reference",
+    "description": "Documentation Comment Service API v1.0",
+    "version": "1.0"
+  },
+  "servers": [
+    { "url": "http://localhost:8060", "description": "Generated server url" }
+  ],
+  "paths": {
+    "/api/comment-service/threads/{threadId}/comments": {
+      "get": {
+        "tags": ["Comment Endpoint"],
+        "description": "Get all comments for a thread",
+        "operationId": "Fetch All Comments",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/ThreadComment" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Comment Endpoint"],
+        "description": "Update a comment",
+        "operationId": "Update Comment",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ThreadComment" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/ThreadComment" }
+              }
+            }
+          }
+        },
+        "security": [{ "security": [] }]
+      },
+      "post": {
+        "tags": ["Comment Endpoint"],
+        "description": "Add a comment to a thread",
+        "operationId": "Add Comment",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ThreadComment" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/ThreadComment" }
+              }
+            }
+          }
+        },
+        "security": [{ "security": [] }]
+      },
+      "delete": {
+        "tags": ["Comment Endpoint"],
+        "description": "Delete a comment",
+        "operationId": "Delete Comment",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ThreadComment" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "string" } } }
+          }
+        },
+        "security": [{ "security": [] }]
+      }
+    },
+    "/api/comment-service/threads/{threadId}/comments/{page}": {
+      "post": {
+        "tags": ["Comment Endpoint"],
+        "description": "Get comments page wise for a thread",
+        "operationId": "Fetch Comments Page",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int32" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/User" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "object" } } }
+          }
+        }
+      }
+    },
+    "/api/comment-service/threads/{threadId}/comments/reply/{page}": {
+      "post": {
+        "tags": ["Comment Endpoint"],
+        "description": "Get replies page wise for a comment by thread id",
+        "operationId": "Fetch Replies",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int32" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ThreadComment" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "object" } } }
+          }
+        }
+      }
+    },
+    "/api/comment-service/threads/{threadId}/comments/meta": {
+      "post": {
+        "tags": ["Comment Like - Dislike"],
+        "description": "Update comment meta data i.e like or dislike",
+        "operationId": "Update Comment Meta-Data",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CommentMeta" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": { "$ref": "#/components/schemas/CommentMeta" }
+              }
+            }
+          }
+        },
+        "security": [{ "security": [] }]
+      }
+    },
+    "/api/comment-service/createThread": {
+      "post": {
+        "tags": ["Thread Endpoint"],
+        "description": "Create a new thread",
+        "operationId": "Create Thread",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ThreadEntity" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "object" } } }
+          }
+        },
+        "security": [{ "security": [] }]
+      }
+    },
+    "/api/comment-service/getAllThreads": {
+      "get": {
+        "tags": ["Thread Endpoint"],
+        "description": "Get all threads",
+        "operationId": "Fetch All Threads",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/ThreadEntity" }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "security": [] }]
+      }
+    },
+    "/api/admin/users": {
+      "get": {
+        "tags": ["Auth0 Service"],
+        "description": "Get all users",
+        "operationId": "Fetch All Users",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/User" }
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "security": ["admin"] }]
+      }
+    },
+    "/api/admin/users/{userId}/role/{roleId}": {
+      "get": {
+        "tags": ["Auth0 Service"],
+        "description": "Delete a role for a user",
+        "operationId": "Delete Role for a User",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "string" } } }
+          }
+        },
+        "security": [{ "security": ["admin"] }]
+      }
+    },
+    "/api/admin/users/role/{userId}": {
+      "get": {
+        "tags": ["Auth0 Service"],
+        "description": "Get all roles for a user",
+        "operationId": "Fetch All Roles for a User",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "string" } } }
+          }
+        },
+        "security": [{ "security": ["admin"] }]
+      }
+    },
+    "/api/admin/users/populate": {
+      "get": {
+        "tags": ["Auth0 Service"],
+        "description": "Populate users",
+        "operationId": "Populate Users",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "string" } } }
+          }
+        },
+        "security": [{ "security": ["admin"] }]
+      }
+    },
+    "/api/admin/roles": {
+      "get": {
+        "tags": ["Auth0 Service"],
+        "description": "Get all roles",
+        "operationId": "Fetch All Roles",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "string" } } }
+          }
+        },
+        "security": [{ "security": ["admin"] }]
+      }
+    },
+    "/api/admin/roles/{roleId}/assign/{userIds}": {
+      "get": {
+        "tags": ["Auth0 Service"],
+        "description": "Delete a role",
+        "operationId": "Delete Role",
+        "parameters": [
+          {
+            "name": "userIds",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "string" } } }
+          }
+        },
+        "security": [{ "security": ["admin"] }]
+      }
+    },
+    "/api/admin/roles/new/{name}/{description}": {
+      "get": {
+        "tags": ["Auth0 Service"],
+        "description": "Create a new role",
+        "operationId": "Create Role",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "description",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "*/*": { "schema": { "type": "string" } } }
+          }
+        },
+        "security": [{ "security": ["admin"] }]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CommentMeta": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int64" },
+          "vote": { "type": "integer", "format": "int64" },
+          "report": { "type": "string" },
+          "user": { "$ref": "#/components/schemas/User" },
+          "comment": { "$ref": "#/components/schemas/ThreadComment" }
+        }
+      },
+      "ThreadComment": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int64" },
+          "user": { "$ref": "#/components/schemas/User" },
+          "content": { "type": "string" },
+          "vote": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/CommentMeta" }
+          },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "lastModified": { "type": "string", "format": "date-time" },
+          "likes": { "type": "integer", "format": "int64" },
+          "dislikes": { "type": "integer", "format": "int64" },
+          "quality": { "type": "number", "format": "double" },
+          "thread": { "$ref": "#/components/schemas/ThreadEntity" },
+          "parentId": { "type": "string" },
+          "children": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/ThreadComment" }
+          },
+          "hasMore": { "type": "boolean" },
+          "parent": { "$ref": "#/components/schemas/ThreadComment" }
+        }
+      },
+      "ThreadEntity": {
+        "type": "object",
+        "properties": {
+          "threadId": { "type": "string" },
+          "origin": { "type": "string" },
+          "threads": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/ThreadComment" }
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "format": "int64" },
+          "user_id": { "type": "string" },
+          "email": { "type": "string" },
+          "username": { "type": "string" },
+          "picture": { "type": "string" },
+          "status": { "type": "boolean" }
+        }
+      }
+    },
+    "securitySchemes": {
+      "security": { "type": "http", "scheme": "bearer", "bearerFormat": "JWT" }
+    }
+  }
+}
